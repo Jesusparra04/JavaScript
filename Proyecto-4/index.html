@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <!-- Metadatos -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Autor: ">
+    <meta name="generator" content="">
+    <title>OMRON</title>
+    
+    <!---Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Iconos Boostrapt 1.11.3 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--  Styles for Dashboard -->
+    <link href="css/dashboard.css" rel="stylesheet">
+    <!--Styles-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/omro-logo-blanco.png" type="image/x-icon">
+  </head>
+  <body>
+    <!--iconos cambio Claro / Oscuro-->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+    <!--Fin Iconos Cambio Claro / Oscuro-->
+
+    <!---Boton de Cambio a Claro / Oscuro-->
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Claro
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Oscuro
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <!--fin de iconos cambio Claro / Oscuro-->
+
+    <!--Header-->
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><img src="img/Omro-logo.png" width="120px" height="50px" alt=""></a>
+
+      <ul class="navbar-nav flex-row d-md-none">
+        <li class="nav-item text-nowrap">
+          <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search">
+            <i class="bi bi-search"></i>
+          </button>
+        </li>
+        <li class="nav-item text-nowrap">
+          <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+          </button>
+        </li>
+      </ul>
+      <div id="navbarSearch" class="navbar-search w-100 collapse">
+        <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Buscar.." aria-label="Search">
+      </div>
+    </header>
+    <!--Fin Header-->
+
+    <!--Contenedor Fluido-->
+    <div class="container-fluid">
+      <div class="row">
+        <!--Sidebar-->
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary ">
+          <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="sidebarMenuLabel"><img src="img/omro-logo-blanco.png" height="100px" width="50px" alt=""></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+            </div>
+            <!--Navbar Vertical-->
+            <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+              <ul class="nav flex-column vh-100">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                  <i class="bi bi-house-door-fill"></i>
+                    Inicio
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center gap-2" href="#form-1">
+                    <i class="bi bi-activity"></i>
+                    Presion arterial
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center gap-2" href="#form-2">
+                    <i class="bi bi-person-arms-up"></i>
+                    Indice de masa corporal (IMC)
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center gap-2" href="#form-3">
+                    <i class="bi bi-thermometer-half"></i>
+                    Temperatura corporal
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center gap-2" href="#form-4">
+                    <i class="bi bi-person-lines-fill"></i>
+                    Evaluacion de peso y altura
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+            <!--Fin Navbar Vertical-->
+          </div>
+        </div>
+        <!---Fin Sidebar-->
+
+        <!--Contenido Principal App Main-->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <!--Titulo-->
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">OMRON</h1>
+          </div>
+          <!-- Contenedor -->
+          <div class="container  ">
+            <!--Row1 Formulario 1-->
+            <div id="form-1" class="row  d-flex justify-content-center align-items-center">
+              <div class="col-md-10 py-5">
+                  <form id="form-1" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                    <h1>Presion arterial <!-- Button trigger modal -->
+                      <button type="button" class="boton-1 btn "  data-bs-toggle="modal" data-bs-target="#1">
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                      
+                      <!-- Modal -->
+                      <div class="modal fade" id="1" tabindex="-1" aria-labelledby="1 label" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="1 label">App presion arterial</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <img src="img/presion arterial.png" width="400px" height="400px" alt="">
+                            </div>
+                            <div class="modal-footer">
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </div></h1>
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" id="sys" placeholder="Presion sistolica" required>
+                      <label for="floatingInput">Presion arterial sistolica</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" id="dia" placeholder="Presion diastolica" required>
+                      <label for="floatingPassword">Presion arterial diastolica</label>
+                    </div>
+                    
+                    <button class="w-100 btn btn-lg btn-primary" type="submit" >Calcular</button>
+                    <hr class="my-4">
+                    <small class="text-body-secondary"id="calcular">By clicking Sign up, you agree to the terms of use.</small>
+                  </form>
+                
+              </div>
+            </div>
+            <!--Fin Row1 Formulario 1--> 
+
+            <!--Row2 Formulario 2-->
+            <div id="form-2" class="row d-flex justify-content-center align-items-center">
+              <div class="col-md-10 py-5">
+                
+                  <form id="form-2" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                    <h1>Indice de masa muscular (imc) <!-- Button trigger modal -->
+                      <button type="button" class="boton-1 btn" data-bs-toggle="modal" data-bs-target="#2">
+                        <i class="bi bi-info-circle"></i>
+                      </button>
+                      
+                      <!-- Modal -->
+                      <div class="modal fade" id="2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="2">App indice de masa muscular (IMC)</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                             <img src="img/imc.png" width="400px" height="400px" alt="">
+                            </div>
+                            <div class="modal-footer">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div></h1>
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" id="peso" placeholder="" required>
+                      <label for="floatingInput">Ingrese su peso (kG)</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" id="altura" step="any" placeholder="" required>
+                      <label for="floatingPassword">Ingrese su altura (M)</label>
+                    </div>
+                    
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Calcular</button>
+                    <hr class="my-4">
+                    <small class="text-body-secondary" id="resultado">By clicking Sign up, you agree to the terms of use.</small>
+                  </form>
+                
+              </div>
+            </div>
+
+            <div id="form-3" class="row d-flex justify-content-center align-items-center">
+              <div class="col-md-10 py-5">
+                
+                  <form id="form-3" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                    <h1>Temperatura corporal <button type="button" class="boton-1 btn "  data-bs-toggle="modal" data-bs-target="#3">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="3">App Temperatura corporal</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <img src="img/temperatura corporal.png" width="400px" height="400px" alt="">
+                          </div>
+                          <div class="modal-footer">
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div></h1>
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" id="temp" placeholder="" step="any" required>
+                      <label for="floatingInput">Ingrese su temperatura (°C)</label>
+                    </div>
+                    
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Calcular</button>
+                    <hr class="my-4">
+                    <small class="text-body-secondary" id="resul">By clicking Sign up, you agree to the terms of use.</small>
+                  </form>
+                
+              </div>
+            </div>
+
+            <div id="form-4" class="row d-flex justify-content-center align-items-center">
+              <div class="col-md-10 py-5">
+                
+                  <form id="form-4" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                    <h1>Evaluacion peso-altura <button type="button" class="boton-1 btn "  data-bs-toggle="modal" data-bs-target="#4">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="4">App peso-altura</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <img src="img/peso- altura.png" width="400px" height="400px" alt="">
+                          </div>
+                          <div class="modal-footer">
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div></h1>
+                    <div class="form-floating mb-3">
+                      <select class="form-select" aria-label="Default select example" id="sexo">
+                        <option  selected >--Elija una opcion--</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                      </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" id="edad" step="any" placeholder="" >
+                      <label for="floatingPassword">Ingrese su edad</label>
+                    </div>
+                    
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Calcular</button>
+                    <hr class="my-4">
+                    <small class="text-body-secondary" id="resultado2">By clicking Sign up, you agree to the terms of use.</small>
+                  </form>
+                
+              </div>
+            </div>
+            
+            
+
+          </div>
+          
+        </main>
+        
+      </div>
+     
+    </div>
+    
+   
+    <footer class="footer">
+      <p>Copyright © 2024 Jesus Parra.</p>
+  </footer>
+    
+    
+    <!---Boostrap 5.3 JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--Dashboard JS-->
+    <script src="js/dashboard.js"></script>
+    <script src="js/color-modes.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>
